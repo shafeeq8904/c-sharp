@@ -1,0 +1,6 @@
+Hello, this is a sample file.
+It contains multiple lines.
+Each line has a few words.
+This is the last line.
+hello i am shafeeq ahmed .
+form india.
