@@ -1,55 +1,34 @@
 ﻿using System;
 using System.Net.Http;
-using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace Task7
 {
     class Program
     {
-        static async Task Main(string[] args)
+        static void Main(string[] args)
         {
             using HttpClient client = new HttpClient();
 
-            // Fetch joke and cat fact
-            string joke = await FetchJokeAsync(client);
-            string catFact = await FetchCatFactAsync(client);
+            Task<string> jokeTask = FetchJokeAsync(client);
+            Task<string> catFactTask = FetchCatFactAsync(client);
 
-            Console.WriteLine(" Joke: " + joke);
-            Console.WriteLine(" ------------------------------------------------------------------------");
-            Console.WriteLine(" Cat Fact: " + catFact);
+            string[] results = Task.WhenAll(jokeTask, catFactTask).Result;
+
+            Console.WriteLine("Joke (Raw JSON): " + results[0]);
+            Console.WriteLine("Cat Fact (Raw JSON): " + results[1]);
         }
 
         static async Task<string> FetchJokeAsync(HttpClient client)
         {
             string jokeApi = "https://v2.jokeapi.dev/joke/Any?type=single";
-            string response = await client.GetStringAsync(jokeApi);
-
-            using JsonDocument doc = JsonDocument.Parse(response);
-            JsonElement root = doc.RootElement;
-
-            if (root.TryGetProperty("joke", out JsonElement jokeElement))
-            {
-                return jokeElement.GetString(); // Just the joke string
-            }
-
-            return "No joke found.";
+            return await client.GetStringAsync(jokeApi);
         }
 
         static async Task<string> FetchCatFactAsync(HttpClient client)
         {
             string catApi = "https://catfact.ninja/fact";
-            string response = await client.GetStringAsync(catApi);
-
-            using JsonDocument doc = JsonDocument.Parse(response);
-            JsonElement root = doc.RootElement;
-
-            if (root.TryGetProperty("fact", out JsonElement factElement))
-            {
-                return factElement.GetString(); // Just the fact string
-            }
-
-            return "No cat fact found.";
+            return await client.GetStringAsync(catApi);
         }
     }
 }
