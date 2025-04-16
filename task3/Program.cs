@@ -1,36 +1,47 @@
 ﻿using System;
-using System.Collections.Generic;
 
-namespace task3
+class Program
 {
-    class Program
+    static void Main()
     {
-        static void Main(string[] args)
+        Items item = new Items();
+
+        while (true)
         {
-            List<string> names = new List<string>();
-            names.Add("shafeeq");
-            names.Add("karthik");
-            names.Add("srinivas");;
+            Console.WriteLine("\nChoose an option:");
+            Console.WriteLine("1. Add Item");
+            Console.WriteLine("2. Remove Item");
+            Console.WriteLine("3. Display Items");
+            Console.WriteLine("4. Exit");
+            Console.Write("Enter your choice (1-4): ");
 
-            Console.WriteLine("names in the list: and convert to upper case");
-            foreach (string name in names)
+            string input = Console.ReadLine().Trim();
+
+            switch (input)
             {
-                Console.WriteLine(name.ToUpper());
-            }
+                case "1":
+                    Console.Write("Enter item to add: ");
+                    string addItem = Console.ReadLine().Trim();
+                    item.AddItem(addItem);
+                    break;
 
-            Console.WriteLine("names in the list: and convert to lower case");
-            foreach (string name in names)
-            {
-                Console.WriteLine(name.ToLower());
-            }
+                case "2":
+                    Console.Write("Enter item to remove: ");
+                    string removeItem = Console.ReadLine().Trim();
+                    item.RemoveItem(removeItem);
+                    break;
 
-            names.Remove("srinivas");
+                case "3":
+                    item.DisplayItems();
+                    break;
 
-            Console.WriteLine("remove the name from the  list:");
+                case "4":
+                    Console.WriteLine("Exiting...");
+                    return;
 
-            foreach (string name in names)
-            {
-                Console.WriteLine(name);
+                default:
+                    Console.WriteLine("Invalid choice. Try again.");
+                    break;
             }
         }
     }
