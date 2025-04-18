@@ -8,19 +8,19 @@
     "net9.0": []
   },
   "packageFolders": {
-    "C:\\Users\\VC\\.nuget\\packages\\": {}
+    "C:\\Users\\Dhanish Ahmed . S\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\c#\\c-sharp\\task1\\task1.csproj",
+      "projectUniqueName": "C:\\Users\\Dhanish Ahmed . S\\OneDrive\\Desktop\\c#\\task1\\task1.csproj",
       "projectName": "task1",
-      "projectPath": "C:\\c#\\c-sharp\\task1\\task1.csproj",
-      "packagesPath": "C:\\Users\\VC\\.nuget\\packages\\",
-      "outputPath": "C:\\c#\\c-sharp\\task1\\obj\\",
+      "projectPath": "C:\\Users\\Dhanish Ahmed . S\\OneDrive\\Desktop\\c#\\task1\\task1.csproj",
+      "packagesPath": "C:\\Users\\Dhanish Ahmed . S\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Dhanish Ahmed . S\\OneDrive\\Desktop\\c#\\task1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\VC\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Dhanish Ahmed . S\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
