@@ -1,0 +1,6 @@
+@syncronousDemo_HostAddress = http://localhost:5037
+
+GET {{syncronousDemo_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
